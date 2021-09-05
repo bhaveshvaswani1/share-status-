@@ -1,0 +1,62 @@
+<html>
+
+<body>
+    <%- include('partials/navbar'); %>
+    <br><br>
+    <div>
+        <div style="border: solid black 2px;">
+            <p style="text-align: center; font-size: 30px;"> <%= user.name %></p>
+
+
+            <div style="text-align: center;">
+
+
+                <% if (!isFriend) { %>
+                <form method="post" action="/profile/addfriend">
+                    <input id="add" name="addfriend" value="<%=user.username%>">
+                    <button type="submit" id="myCheck">follow</button>
+                </form>
+
+                <%} 
+                    else { %>
+                <form method="post" action="/profile/deletefriend">
+                    <input id="add" name="deletefriend" value="<%=user.username%>">
+                    <button type="submit" id="myCheck">Unfollow</button>
+                </form>
+                <% } %>
+
+
+
+
+
+
+                <p>10 Followers</p>
+            </div>
+        </div>
+
+
+    </div>
+    <link rel="stylesheet" href="../public/styles.css">
+    <h1 style="text-align: center;">Posts</h1>
+    <div class="outer">
+        <%post.forEach(item=>{%>
+        <%if(item.username=== user.username){%>
+        <div id="box1">
+
+            <div class="box-in">
+                <h1 class="title">
+                    <%=item.title%></h1>
+
+                <h1><%=item.status%></h1>
+
+                </a>
+
+            </div>
+
+        </div> <%}%>
+    <br>
+<%})%>
+    </div>
+</body>
+
+</html>

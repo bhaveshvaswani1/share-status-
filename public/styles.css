@@ -1,0 +1,48 @@
+.box-in{
+  color: rgb(226, 219, 219)
+};
+p{
+  color: red;
+}
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0; 
+  
+  width: 100% !important;
+  left: 5;
+  z-index: 20; 
+}
+.footer-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0; 
+  
+  width: 100% !important;
+  left: 5;
+  z-index: 20; 
+}
+#box1{
+  background-color: rgb(65, 60, 60);
+  padding: 10px 10px;
+}
+.post-something{
+  font-size: 30px;
+  margin-left: 26cm;
+}
+.outer{
+  border: lightblue solid 10px;
+  padding: 5px 5px;;
+}
+.title{
+  text-align: center;
+  color: rgb(1, 97, 129);
+}
+.by{
+  font-size: 20px;
+  margin-left:23cm;
+}
+html, body {
+  margin: 0;
+ }

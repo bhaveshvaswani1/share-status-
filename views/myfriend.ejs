@@ -1,0 +1,49 @@
+<html>
+
+<body>
+    <%- include('partials/navbar'); %>
+    <br>
+    <div>
+
+        <h1 class="mt-4">Friends - Post</h1>
+        <p>Welcome <%= user.name %></p>
+
+        <div class="post-something">
+            <a href="/post">Add Post</a>
+        </div>
+
+
+    </div>
+    <link rel="stylesheet" href="../public/styles.css">
+    <% var c = 0;%>
+    <div class="outer">
+        <%post.forEach(item=>{%>
+        <%friend.forEach(item2=>{%>
+        
+        <%if(item2.friend==item.username){%>
+
+        <div id="box1">
+       
+                <div class="box-in">
+                    <h1 class="title">
+                        <%=item.title%></h1>
+                    
+                    <h2><%=item.status%></h2>
+                    <h3 class="by">By <%=item.username%></h3>
+                </div>
+             
+            </div>  
+        <br>
+
+        <%  c=c+1}%>
+        <%  })%>
+        <%})%>
+    <%if(c==0){%>
+     <h1>Add friends! <br>Go to your friend profile and click follow
+        <br>
+         Ex. ID localhost:5000/profile/your-Friend-Username</h1> 
+     <%}%>
+    </div>
+</body>
+
+</html>

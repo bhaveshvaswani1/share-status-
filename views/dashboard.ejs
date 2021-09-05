@@ -1,0 +1,38 @@
+<html>
+        <%- include('partials/navbar'); %>
+<body>
+   
+    <br>
+    <div>
+
+        <h1 class="mt-4">Home Page</h1>
+        <p>Welcome <%= user.name %></p>
+
+        <div class="post-something">
+            <a href="/post" >Add Post </a>
+        </div>
+
+
+    </div>
+    <link rel="stylesheet" href="../public/styles.css">
+    <div class="outer">
+    <%post.forEach(item=>{%>
+        <%if(item.username!== user.username){%>
+    <div id="box1">
+       
+        <div class="box-in">
+            <h1 class="title">
+                <%=item.title%></h1>
+            
+            <h2><%=item.status%></h2>
+            <h3 class="by">By <%=item.username%></h3>
+        </div>
+     
+    </div> 
+    <br>  <%}%>
+    
+<%})%>
+</div>
+
+</body>
+</html>
