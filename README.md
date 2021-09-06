@@ -1,11 +1,11 @@
-Share your status!
+<h2>Share your status!</h2>
 
-<h1>Login & register<h1>
-you can check others posts
-Can Add new posts/status
-You can follow/unfollow anyone
+<h6>Login & register</h6>
+<h6>you can check others posts</h6>
+<h6>Can Add new posts/status</h6>
+<h6>You can follow/unfollow anyone</h6>
 
-
-working on other features!
+<br>
+<h6>working on other features!<h6>
 
 
