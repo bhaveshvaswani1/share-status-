@@ -12,6 +12,9 @@ const PostSchema = new mongoose.Schema({
   status: {
     type:String,
     required: true
+  },
+  image:{
+    type:String
   }
 });
 

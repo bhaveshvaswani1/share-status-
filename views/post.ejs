@@ -6,7 +6,7 @@
 <br>
 <br>
 <br>
-<form method="post" action="/post">
+<form method="post" action="/post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Title</label>
         <input class="form-control" id="title" name="title" placeholder="Title">
@@ -15,8 +15,11 @@
         <label for="status">status</label>
         <input class="form-control" id="status" name="status" placeholder="status">
     </div>
-
+    <input type="file" name="file" />
     <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- <form action="/profile" method="post" > -->
+      
+      <!-- </form> -->
 </form>
 </body>
 </html>

@@ -29,7 +29,9 @@
                         <%=item.title%></h1>
                     
                     <h2><%=item.status%></h2>
-                    <h3 class="by">By <%=item.username%></h3>
+                    
+                <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%" >
+                   <h3 class="by">By <a href="/profile/<%=item.username%>">  <%=item.username%>  </a></h3>
                 </div>
              
             </div>  
