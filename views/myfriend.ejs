@@ -16,35 +16,45 @@
     </div>
     <link rel="stylesheet" href="../public/styles.css">
     <% var c = 0;%>
-    <div class="outer">
+    <div class="outer center">
         <%post.forEach(item=>{%>
         <%friend.forEach(item2=>{%>
-        
+
         <%if(item2.friend==item.username){%>
 
-        <div id="box1">
-       
-                <div class="box-in">
-                    <h1 class="title">
-                        <%=item.title%></h1>
-                    
-                    <h2><%=item.status%></h2>
-                    
-                <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%" >
-                   <h3 class="by">By <a href="/profile/<%=item.username%>">  <%=item.username%>  </a></h3>
-                </div>
-             
-            </div>  
+        <div id="box1" class="center">
+
+            <div class="box-in">
+                <h1 class="title">
+                    <%=item.title%></h1>
+
+                <h2><%=item.status%></h2>
+                <br>
+                <br>
+                <%  var id = item.image.substr(item.image.length-3); %>
+                <%console.log(id)%>
+                <%if(id==="png"||id==="png"||id==="gif") {%>
+                <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%">
+                <%}%>
+            <%if(id==="mp4"){%>
+                <video class="center" height="200px" width="200px" controls>
+                    <source src="../public/uploads/<%=item.image%>" type="video/mp4">
+                </video>
+                <%}%>
+                   <h3 style="margin-left: 50%;">By <a href="/profile/<%=item.username%>"> <%=item.username%> </a></h3>
+            </div>
+
+        </div>
         <br>
 
         <%  c=c+1}%>
         <%  })%>
         <%})%>
-    <%if(c==0){%>
-     <h1>Add friends! <br>Go to your friend profile and click follow
-        <br>
-         Ex. ID localhost:5000/profile/your-Friend-Username</h1> 
-     <%}%>
+        <%if(c==0){%>
+        <h1>Add friends! <br>Go to your friend profile and click follow
+            <br>
+            Ex. ID localhost:5000/profile/your-Friend-Username</h1>
+        <%}%>
     </div>
 </body>
 

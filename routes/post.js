@@ -7,6 +7,7 @@ const User = require('../models/User');
 const friend = require('../models/friend')
 const post = require('../models/post');
 const { forwardAuthenticated,ensureAuthenticated } = require('../config/auth');
+var path = require('path')
 
 const app  = express();
 router.use('public', express.static('public'))
@@ -14,29 +15,26 @@ router.use('public', express.static('public'))
 //static files
 app.use('/public',express.static('public'));
 const multer  = require('multer')
-////multer
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now()+file.originalname)
-    }
-  });
-
   const fileFilter=(req, file, cb)=>{
-   if(file.mimetype ==='image/jpeg'|| file.mimetype ==='image/gif' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png'){
-       cb(null,true);
-   }else{
-       cb(null, false);
-   }
-
+      if(file.mimetype ==='image/jpeg' ||file.mimetype ==='image/mkv'|| file.mimetype ==='image/gif' || file.mimetype ==='image/jpg' || file.mimetype ==='image/png'){
+        console.log(file.mimetype);
+        cb(null,true);
+    }
+   else if (!file.originalname.match(/\.(mp4|MPEG-4|mkv)$/)) { 
+        return cb(new Error('Please upload a video'))
+     }
+     cb(undefined, true)
   }
-
+const videoStorage = multer.diskStorage({
+    destination: './public/uploads/', // Destination to store video 
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '_' + Date.now() + path.extname(file.originalname))
+    }
+});
 var upload = multer({ 
-    storage:storage,
+    storage:videoStorage,
     limits:{
-        fileSize: 1024 * 1024 * 5
+        fileSize:10000000
     },
     fileFilter:fileFilter
  }).single('file');

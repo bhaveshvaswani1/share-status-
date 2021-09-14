@@ -10,6 +10,17 @@ const friend = require('../models/friend');
 const post = require('../models/post');
 const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
+
+router.get('/allUsers',ensureAuthenticated,async(req,res)=>{
+
+  await  User.find()
+    .then(item=>{
+        console.log(item);
+        res.render('allUsers',{data:item});
+    })
+});
+
+
 router.get('/:username', ensureAuthenticated, async (req, res) => {
 
     let isFriend = false;

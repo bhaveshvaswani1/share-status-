@@ -4,7 +4,7 @@
    
     <br>
     <div>
-
+         
         <h1 class="mt-4">Home Page</h1>
         <p>Welcome <%= user.name %></p>
 
@@ -15,19 +15,29 @@
 
     </div>
     <link rel="stylesheet" href="../public/styles.css">
-    <div class="outer">
+    <div class="outer center">
     <%post.forEach(item=>{%>
         <%if(item.username!== user.username){%>
-    <div id="box1">
+    <div class="center" id="box1">
        
-        <div class="box-in">
+        <div  class="box-in ">
             <h1 class="title">
                 <%=item.title%></h1>
             
             <h2><%=item.status%></h2>
-            
+            <br>
+            <br>
+        <%  var id = item.image.substr(item.image.length-3); %>
+       
+            <%if(id==="png"||id==="png"||id==="gif") {%>
             <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%" >
-            <h3 class="by">By <a href="/profile/<%=item.username%>">  <%=item.username%>  </a></h3>
+            <%}%>
+            <%if(id==="mp4"){%>
+            <video class="center" height="200px" width="200px" controls>
+                    <source src="../public/uploads/<%=item.image%>" type="video/mp4">
+                  </video>
+                  <%}%>
+            <h3 style="text-align: center; padding-top: 20px;">By <a href="/profile/<%=item.username%>">  <%=item.username%>  </a></h3>
         </div>
      
     </div> 

@@ -16,18 +16,30 @@
     </div>
     <link rel="stylesheet" href="../public/styles.css">
     <%var c=0;%>
-    <div class="outer">
+    <div class="outer center">
         <%post.forEach(item=>{%>
         <%if(item.username=== user.username){%>
-        <div id="box1">
+        <div id="box1" class="center">
 
             <div class="box-in">
                 <h1 class="title">
                     <%=item.title%></h1>
 
-                <h1><%=item.status%></h1>
-                <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%" >
-                <a style="margin-left: 26cm; font-size: 20px;" href="/post/edit/<%=item._id%>">Edit</a>
+                <h1><%=item.status%></h1> <br>
+                <br>
+                <%  var id = item.image.substr(item.image.length-3); %>
+                <%console.log(id)%>
+                <%if(id==="png"||id==="png"||id==="gif") {%>
+                <img class="center" src="../public/uploads/<%=item.image%>" alt="hello img" width="10%">
+                <%}%>
+            <%if(id==="mp4"){%>
+                <video class="center" height="200px" width="200px" controls>
+                    <source src="../public/uploads/<%=item.image%>" type="video/mp4">
+                </video>
+                
+
+                <%}%>
+                <a style="margin-left: 100%; font-size: 20px;" href="/post/edit/<%=item._id%>">Edit</a>
 
 
             </div>

@@ -1,0 +1,34 @@
+
+<html>
+    <%- include('partials/navbar'); %>
+<body>
+
+<br>
+<br>
+<div>
+
+
+    <div class="post-something">
+        <a href="/post" >Add Post </a>
+    </div>
+
+
+</div>
+<link rel="stylesheet" href="../public/styles.css">
+<div class="outer">
+<br>
+<h1 style="text-align: center;">Go Check there amazing profile and posts</h1>
+<%data.forEach(item=>{%>
+<div class="box1">
+
+    <div class="box-in">
+   <li>  <h1 style="margin-left: 5%;">   <a href="/profile/<%=item.username%>" ><%=item.username%></a> </h1> </li>
+    </div>
+
+</div>
+<%})%>
+
+</div>
+
+</body>
+</html>
