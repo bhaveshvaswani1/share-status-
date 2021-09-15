@@ -2,7 +2,7 @@
 
 <h6>Login & register</h6>
 <h6>you can check others posts</h6>
-<h6>Can Add new posts/status with image</h6>
+<h6>Can Add new posts/status with Files</h6>
 <h6>You can follow/unfollow anyone</h6>
 
 <br>
